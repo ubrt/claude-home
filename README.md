@@ -47,6 +47,8 @@ The terminal runs inside a tmux session named `claude`. When you close the sideb
 
 The addon writes a `.mcp.json` file to `/config` on every start, pointing Claude Code at the configured MCP server URL. This gives Claude direct access to Home Assistant entities, automations, scripts, and dashboards without leaving the terminal.
 
+The recommended MCP server for Home Assistant is [ha-mcp](https://github.com/homeassistant-ai/ha-mcp), which exposes the Home Assistant API via the Model Context Protocol over HTTP. Follow its installation instructions to obtain the endpoint URL and any required authentication token to enter in the addon configuration.
+
 ## Overlay (optional)
 
 For a floating terminal overlay on any dashboard page, install [Browser Mod](https://github.com/thomasloven/hass-browser_mod) via HACS and add the following button card to a dashboard:
