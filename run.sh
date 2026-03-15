@@ -31,7 +31,9 @@ cat > /data/.claude/settings.json << EOF
       "Read(**)",
       "Edit(**)",
       "Write(**)",
-      "Bash(*)"
+      "Bash(*)",
+      "WebSearch(*)",
+      "WebFetch(*)"
     ]
   }
 }
