@@ -9,6 +9,7 @@ mkdir -p /data/.claude
 MCP_URL=$(bashio::config 'mcp_url')
 MODEL=$(bashio::config 'model')
 AUTO_UPDATES=$(bashio::config 'auto_updates_channel')
+NOTES=$(bashio::config 'notes')
 
 # Build settings.json dynamically from addon config
 cat > /data/.claude/settings.json << EOF
@@ -34,9 +35,39 @@ cat > /data/.claude/settings.json << EOF
       "Bash(*)",
       "WebSearch(*)",
       "WebFetch(*)"
+    ],
+    "deny": [
+      "Read(/config/secrets.yaml)"
     ]
   }
 }
+EOF
+
+# Write CLAUDE.md into /config (working directory)
+cat > /config/CLAUDE.md << EOF
+# Home Assistant — Claude Context
+
+## Environment
+- Working directory: /config (Home Assistant configuration)
+- MCP server connected: ${MCP_URL}
+- All HA entities, automations, scripts and dashboards are accessible via MCP tools
+
+## Key conventions
+- Use \`entity_id\` in triggers and actions, never \`device_id\`
+- Dashboard edits: prefer \`python_transform\` over full config replacement
+- Blueprints are stored in \`/config/blueprints/automation/homeassistant/\`
+
+## Backups
+- Before performing critical refactoring (removing or restructuring automations, scripts, dashboards, or configuration files), check when the last backup was created. Only ask the user whether a backup should be created if no backup exists from the recent past.
+
+## Learning
+- When an MCP tool call fails or behaves unexpectedly, identify the correct usage and save it to memory before retrying. This prevents repeating the same mistake in future sessions.
+
+## Restrictions
+- Never read or output the contents of /config/secrets.yaml
+
+## Notes
+${NOTES}
 EOF
 
 # Write MCP server config

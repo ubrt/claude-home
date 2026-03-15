@@ -1,6 +1,6 @@
 name: "Claude Home"
 description: "Claude KI-Assistent direkt in Home Assistant"
-version: "1.4.0"
+version: "1.5.0"
 slug: "claude_code"
 init: false
 arch:
@@ -14,9 +14,11 @@ options:
   mcp_url: "https://your-ha-instance/mcp_server/sse?token=YOUR_TOKEN"
   model: "claude-opus-4-6"
   auto_updates_channel: "latest"
+  notes: ""
 schema:
   mcp_url: str
   model: str
   auto_updates_channel: str
+  notes: str
 map:
   - config:rw
