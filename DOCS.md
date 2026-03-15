@@ -1,6 +1,6 @@
-# Claude Code HA Addon
+# Claude Home HA Addon
 
-Claude Code CLI direkt in Home Assistant, mit vollem Zugriff auf `/config` und dem HA MCP Server.
+Claude Home direkt in Home Assistant, mit vollem Zugriff auf `/config` und dem HA MCP Server.
 
 ## Installation
 
@@ -19,7 +19,7 @@ Den Token erstellt du unter: **Profil → Sicherheit → Long-Lived Access Token
 
 ## Erster Start / Login
 
-Beim ersten Start muss Claude Code einmalig authentifiziert werden:
+Beim ersten Start muss Claude Home einmalig authentifiziert werden:
 
 1. Addon starten → Terminal öffnet sich im HA Sidebar
 2. `claude` wird automatisch gestartet

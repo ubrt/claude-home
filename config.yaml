@@ -1,5 +1,5 @@
-name: "Claude Code"
-description: "Claude Code KI-Assistent direkt in Home Assistant"
+name: "Claude Home"
+description: "Claude KI-Assistent direkt in Home Assistant"
 version: "1.2.0"
 slug: "claude_code"
 init: false
@@ -9,7 +9,7 @@ arch:
 ingress: true
 ingress_port: 7681
 panel_icon: "mdi:robot"
-panel_title: "Claude Code"
+panel_title: "Claude Home"
 options:
   mcp_url: "https://your-ha-instance/mcp_server/sse?token=YOUR_TOKEN"
   model: "claude-opus-4-6"
