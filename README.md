@@ -31,7 +31,7 @@ Runs [Claude Code](https://claude.ai/code) as a Home Assistant addon with a brow
 
 1. In Home Assistant, go to **Settings → Add-ons → Add-on Store**
 2. Open the overflow menu (top right) and select **Repositories**
-3. Add `https://github.com/ubrt/ha-claude` and confirm
+3. Add `https://github.com/ubrt/claude-home` and confirm
 4. Find **Claude Home** in the store and install it
 
 ## Configuration
@@ -74,4 +74,4 @@ The recommended MCP server for Home Assistant is [ha-mcp](https://github.com/hom
 
 The addon is built on the official Home Assistant Debian base image. Claude Code is installed via npm during the image build. The web terminal is provided by [ttyd](https://github.com/tsl0922/ttyd).
 
-To update the addon after making changes to local files, increment `version` in `config.yaml`, copy the files to `/addons/claude_code/` on the HA host, and trigger a reload via **Add-on Store → Check for updates**.
+To update the addon after making changes to local files, increment `version` in `config.yaml`, copy the files to `/addons/claude_home/` on the HA host, and trigger a reload via **Add-on Store → Check for updates**.
