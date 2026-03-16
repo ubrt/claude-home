@@ -35,8 +35,11 @@ Claude Home needs to be authenticated once on first start:
 
 1. Start the addon and open it from the sidebar
 2. Claude starts automatically and displays an authentication URL
-3. Open the URL in a browser, log in with your Claude.ai Pro account, and authorize the device
-4. Done — credentials are stored in `/data/.claude/` and persist across updates and restarts
+3. **Hold Shift** and select the URL with the mouse, then copy it (Ctrl+C or right-click → Copy)
+4. Open the URL in a browser, log in with your Claude.ai Pro account, and authorize the device
+5. Done — credentials are stored in `/data/.claude/` and persist across updates and restarts
+
+> **Note:** Holding Shift while selecting bypasses tmux's mouse mode and lets the browser handle the copy normally.
 
 ---
 
