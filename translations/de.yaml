@@ -1,0 +1,25 @@
+configuration:
+  mcp_url:
+    name: MCP Server URL
+    description: Vollständige URL zum Home Assistant MCP Server, inkl. Authentifizierungstoken. Beispiel: https://deine-ha/mcp_server/sse?token=DEIN_TOKEN
+  model:
+    name: Claude Modell
+    description: "Zu verwendendes Claude Modell. Optionen: claude-opus-4-6 (leistungsstärkste), claude-sonnet-4-6 (schnell & smart), claude-haiku-4-5-20251001 (am schnellsten)"
+  auto_updates_channel:
+    name: Update-Kanal
+    description: "Update-Kanal für Claude Code: latest (stabil) oder beta"
+  notes:
+    name: Sitzungsnotizen
+    description: Zusätzlicher Kontext, der zu Beginn jeder Sitzung eingefügt wird — beschreibe dein Setup, Räume, Geräte oder Vorlieben, damit Claude ohne wiederholte Erklärungen helfen kann
+  loop_enabled:
+    name: Periodische Schleife aktivieren
+    description: Wenn aktiviert, startet Claude beim Sitzungsstart automatisch eine wiederkehrende Aufgabenschleife
+  loop_interval:
+    name: Schleifenintervall (Minuten)
+    description: Wie oft die Schleife ausgeführt wird, in Minuten
+  loop_start_delay:
+    name: Startverzögerung der Schleife (Sekunden)
+    description: Wie viele Sekunden nach dem Sitzungsstart gewartet wird, bevor die Schleife aktiviert wird — gibt Claude Zeit zum Laden
+  loop_task:
+    name: Schleifenaufgabe
+    description: Was Claude bei jeder Schleifeniteration tun soll — Aufgabe in Freitext beschreiben, z.B. "Prüfe ob noch Lichter an sind und schicke eine Push-Benachrichtigung"

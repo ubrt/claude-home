@@ -1,32 +1,71 @@
-# Claude Home HA Addon
+# Claude Home
 
-Claude Home direkt in Home Assistant, mit vollem Zugriff auf `/config` und dem HA MCP Server.
+Claude Code running directly inside Home Assistant — with a browser-based terminal, full access to `/config`, and the HA MCP server.
 
-## Installation
+---
 
-1. In HA: **Einstellungen → Add-ons → Add-on Store → ⋮ → Eigenes Repository hinzufügen**
-2. Pfad zum Addon-Ordner angeben (oder GitHub-Repo)
-3. Addon installieren
+## Warning
 
-## Konfiguration
+**Use at your own risk.**
 
-| Option | Beschreibung |
+- Always create a full Home Assistant backup before using Claude Home.
+- Claude has direct access to all entities and can switch devices on or off. Misunderstood instructions can cause unexpected actions.
+- The loop feature runs unattended in the background. Review the configured task carefully and monitor its behavior, especially during initial setup.
+
+---
+
+## Configuration
+
+| Option | Description |
 |--------|-------------|
-| `mcp_url` | URL zum HA MCP Server (SSE), z.B. `http://homeassistant:8123/mcp_server/sse` |
-| `mcp_token` | Long-Lived Access Token (falls die MCP URL Auth erfordert) |
+| `mcp_url` | Full URL to the HA MCP server including auth token, e.g. `https://your-ha/mcp_server/sse?token=...` |
+| `model` | Claude model: `claude-opus-4-6` (most capable), `claude-sonnet-4-6` (fast & smart), `claude-haiku-4-5-20251001` (fastest) |
+| `auto_updates_channel` | Update channel: `latest` (stable) or `beta` |
+| `notes` | Free-text context passed to Claude at the start of every session — describe your setup, rooms, devices, or preferences |
+| `loop_enabled` | Enable the periodic task loop |
+| `loop_interval` | How often the loop runs (minutes) |
+| `loop_start_delay` | Seconds to wait after session start before the loop activates |
+| `loop_task` | What Claude should do on each loop iteration (plain text) |
 
-Den Token erstellt du unter: **Profil → Sicherheit → Long-Lived Access Tokens**
+---
 
-## Erster Start / Login
+## First Start / Login
 
-Beim ersten Start muss Claude Home einmalig authentifiziert werden:
+Claude Home needs to be authenticated once on first start:
 
-1. Addon starten → Terminal öffnet sich im HA Sidebar
-2. `claude` wird automatisch gestartet
-3. Eine URL erscheint → im Browser öffnen → mit Claude.ai Pro Account einloggen
-4. Fertig — Credentials werden in `/data/.claude/` gespeichert und bleiben dauerhaft erhalten
+1. Start the addon and open it from the sidebar
+2. Claude starts automatically and displays an authentication URL
+3. Open the URL in a browser, log in with your Claude.ai Pro account, and authorize the device
+4. Done — credentials are stored in `/data/.claude/` and persist across updates and restarts
 
-## Enthaltene Plugins
+---
 
-- **home-assistant-skills** — Best Practices für HA Automationen, Helfer, Scripts und Dashboards
+## Sessions
 
+The terminal runs inside a tmux session named `claude`. The session starts when the container starts — regardless of whether the web panel is open. Opening the sidebar panel attaches to the running session. After a restart, the last conversation is automatically resumed.
+
+---
+
+## Periodic Loop
+
+When `loop_enabled` is active, Claude automatically starts a loop after `loop_start_delay` seconds. The loop runs every `loop_interval` minutes and executes the configured task. It self-renews before the 3-day Claude Code session limit is reached and runs indefinitely as long as the addon is active.
+
+---
+
+## Slash Commands
+
+| Command | Function |
+|---------|---------|
+| `/ha-backup` | Check last backup age, create a new one if needed |
+| `/ha-check` | Validate the HA configuration |
+| `/ha-restart` | Restart Home Assistant (with confirmation) |
+| `/ha-log` | Display logbook entries |
+| `/ha-discover` | Scan the full HA environment and save an overview to memory |
+| `/ha-optimize` | Analyse the setup for optimization opportunities |
+| `/ha-loop-start` | Start the periodic loop manually |
+
+---
+
+## Included Plugins
+
+- **home-assistant-skills** — Best practices for HA automations, helpers, scripts, and dashboards
