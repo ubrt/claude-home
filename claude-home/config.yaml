@@ -1,6 +1,6 @@
 name: "Claude Home"
 description: "Claude AI assistant with full Home Assistant integration — MCP server, HA skills, and direct config access"
-version: "1.16.0"
+version: "1.17.0"
 slug: "claude_home"
 init: false
 arch:
