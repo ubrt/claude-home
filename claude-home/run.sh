@@ -178,7 +178,8 @@ fi
 bashio::log.info "Starting Claude Code (model: ${MODEL})"
 
 # Start tmux session immediately (independent of web shell connections)
-tmux -f /data/.tmux.conf new-session -d -s claude bash -c "cd /config && exec claude ${CLAUDE_FLAGS}; exec bash"
+# No exec for claude: if it exits (e.g. startup error), the shell keeps the session alive and the error stays visible
+tmux -f /data/.tmux.conf new-session -d -s claude bash -c "cd /config && claude ${CLAUDE_FLAGS}; echo \"claude exited with code \$?\"; exec bash"
 
 # Schedule loop start in background if enabled
 if [ "${LOOP_ENABLED}" = "true" ]; then
