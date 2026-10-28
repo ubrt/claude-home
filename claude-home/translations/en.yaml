@@ -4,7 +4,7 @@ configuration:
     description: Full URL to the Home Assistant MCP server, including any authentication token. Example: https://your-ha/mcp_server/sse?token=YOUR_TOKEN
   model:
     name: Claude Model
-    description: "Claude model to use. Options: claude-opus-4-6 (most capable), claude-sonnet-4-6 (fast & smart), claude-haiku-4-5-20251001 (fastest)"
+    description: "Claude model to use: sonnet (default, fast & smart), opus (most capable), haiku (fastest). Aliases always use the latest version; a full model ID like claude-sonnet-5-5 pins a version."
   auto_updates_channel:
     name: Auto Updates Channel
     description: "Update channel for Claude Code: latest (stable) or beta"

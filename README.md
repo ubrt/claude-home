@@ -39,7 +39,7 @@ Runs [Claude Code](https://claude.ai/code) as a Home Assistant addon with a brow
 | Option | Type | Description |
 |--------|------|-------------|
 | `mcp_url` | string | Full URL to the Home Assistant MCP server HTTP endpoint, including any authentication token |
-| `model` | string | Claude model to use, e.g. `claude-opus-4-6` or `claude-sonnet-4-6` |
+| `model` | string | Claude model to use: `sonnet` (default), `opus` or `haiku`, or a full model ID such as `claude-sonnet-5-5` |
 | `auto_updates_channel` | string | Update channel for Claude Home: `latest` or `beta` |
 | `notes` | string | Additional context included in every session — describe your setup, rooms, or preferences |
 | `loop_enabled` | bool | Enable the periodic task loop |

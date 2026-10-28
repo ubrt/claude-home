@@ -19,7 +19,7 @@ Claude Code running directly inside Home Assistant — with a browser-based term
 | Option | Description |
 |--------|-------------|
 | `mcp_url` | Full URL to the HA MCP server including auth token, e.g. `https://your-ha/mcp_server/sse?token=...` |
-| `model` | Claude model: `claude-opus-4-6` (most capable), `claude-sonnet-4-6` (fast & smart), `claude-haiku-4-5-20251001` (fastest) |
+| `model` | Claude model: `opus` (most capable), `sonnet` (fast & smart, default), `haiku` (fastest). Aliases always use the latest version; a full model ID such as `claude-sonnet-5-5` pins a specific version. |
 | `auto_updates_channel` | Update channel: `latest` (stable) or `beta` |
 | `notes` | Free-text context passed to Claude at the start of every session — describe your setup, rooms, devices, or preferences |
 | `loop_enabled` | Enable the periodic task loop |

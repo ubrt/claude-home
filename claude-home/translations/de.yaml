@@ -4,7 +4,7 @@ configuration:
     description: Vollständige URL zum Home Assistant MCP Server, inkl. Authentifizierungstoken. Beispiel: https://deine-ha/mcp_server/sse?token=DEIN_TOKEN
   model:
     name: Claude Modell
-    description: "Zu verwendendes Claude Modell. Optionen: claude-opus-4-6 (leistungsstärkste), claude-sonnet-4-6 (schnell & smart), claude-haiku-4-5-20251001 (am schnellsten)"
+    description: "Zu verwendendes Claude Modell: sonnet (Standard, schnell & smart), opus (leistungsstärkste), haiku (am schnellsten). Kurznamen nutzen immer die neueste Version; eine volle Modell-ID wie claude-sonnet-5-5 legt eine Version fest."
   auto_updates_channel:
     name: Update-Kanal
     description: "Update-Kanal für Claude Code: latest (stabil) oder beta"

@@ -1,6 +1,6 @@
 name: "Claude Home"
 description: "Claude AI assistant with full Home Assistant integration — MCP server, HA skills, and direct config access"
-version: "1.18.0"
+version: "1.19.0"
 slug: "claude_home"
 init: false
 arch:
@@ -15,8 +15,8 @@ options:
   mcp_url: "https://your-ha-instance/mcp_server/sse?token=YOUR_TOKEN"
 
   # --- Claude model ---
-  # Available: claude-opus-4-6, claude-sonnet-4-6, claude-haiku-4-5-20251001
-  model: "claude-opus-4-6"
+  # Aliases always use the latest version: opus, sonnet, haiku. A full model ID (e.g. claude-sonnet-5-5) pins a version.
+  model: "sonnet"
   auto_updates_channel: "latest"
 
   # --- Context ---
